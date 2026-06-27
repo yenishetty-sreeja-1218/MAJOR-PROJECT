@@ -1,0 +1,35 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# React
+node_modules/
+dist/
+
+# VS Code
+.vscode/
+
+# Environment
+.env
+
+# SQLite
+*.db
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backend virtual environment
+backend/venv/
+
+# Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+
+# Python cache
+**/__pycache__/
+

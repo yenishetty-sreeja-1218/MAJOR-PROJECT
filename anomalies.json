@@ -1,0 +1,17 @@
+[
+    {
+        "type": "error_spike",
+        "severity": "HIGH",
+        "details": "6 errors detected"
+    },
+    {
+        "type": "high_latency",
+        "severity": "MEDIUM",
+        "details": "2412.0 ms latency"
+    },
+    {
+        "type": "ml_anomaly",
+        "severity": "HIGH",
+        "details": "1 anomalies detected by ML"
+    }
+]

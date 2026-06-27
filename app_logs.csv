@@ -1,0 +1,11 @@
+timestamp,level,service,message,response_time_ms,status_code,user_id
+2024-02-13 10:30:00,INFO,auth-service,Login success,120,200,user_101
+2024-02-13 10:31:00,ERROR,payment-service,Payment failed,4500,500,user_202
+2024-02-13 10:32:00,WARNING,search-service,Slow response,2000,200,user_303
+2024-02-13 10:33:00,ERROR,auth-service,Invalid password,300,401,user_101
+2024-02-13 10:34:00,ERROR,payment-service,Timeout error,5000,500,user_202
+2024-02-13 10:35:00,INFO,user-service,Profile updated,150,200,user_404
+2024-02-13 10:36:00,ERROR,payment-service,Database failure,4800,500,user_202
+2024-02-13 10:37:00,WARNING,search-service,Slow query,2200,200,user_505
+2024-02-13 10:38:00,ERROR,auth-service,Login failed,350,401,user_101
+2024-02-13 10:39:00,ERROR,payment-service,Payment failed,4700,500,user_202

@@ -1,0 +1,47 @@
+anomalies:
+
+  - name: error_spike
+    description: "Too many errors occurring in a short time window"
+    severity: HIGH
+    how_to_detect: "If errors > 100 in 5 minutes"
+    fields:
+      - error_count: integer
+      - time_window_minutes: integer
+      - threshold: 100
+
+  - name: high_latency
+    description: "Service is responding much slower than normal"
+    severity: MEDIUM
+    how_to_detect: "If average response_time_ms > 2000 over last 10 minutes"
+    fields:
+      - avg_response_time_ms: integer
+      - time_window_minutes: integer
+      - threshold_ms: 2000
+
+  - name: service_down
+    description: "A service has stopped sending logs entirely"
+    severity: CRITICAL
+    how_to_detect: "If no logs received from a service for more than 3 minutes"
+    fields:
+      - service_name: string
+      - last_seen_at: string
+      - silence_duration_minutes: integer
+
+  - name: repeated_failures
+    description: "Same user or request repeatedly failing"
+    severity: MEDIUM
+    how_to_detect: "If same user_id has > 5 ERROR logs within 1 minute"
+    fields:
+      - user_id: string
+      - failure_count: integer
+      - time_window_minutes: integer
+      - threshold: 5
+
+  - name: abnormal_traffic
+    description: "Sudden unexpected surge in request volume"
+    severity: HIGH
+    how_to_detect: "If requests per minute exceed 3x the average of the last hour"
+    fields:
+      - current_rpm: integer
+      - average_rpm: integer
+      - multiplier_threshold: 3

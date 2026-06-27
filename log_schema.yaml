@@ -1,0 +1,98 @@
+log_entry:
+  fields:
+
+    - name: timestamp
+      required: yes
+      type: string
+      format: "YYYY-MM-DD HH:MM:SS"
+      example: "2024-02-13 10:30:00"
+      description: "Exact time the log was created"
+
+    - name: level
+      required: yes
+      type: string
+      options: [INFO, WARNING, ERROR, DEBUG, CRITICAL]
+      example: "ERROR"
+      description: "Severity of the log entry"
+
+    - name: service
+      required: yes
+      type: string
+      example: "payment-service"
+      description: "Name of the application or microservice that generated the log"
+
+    - name: message
+      required: yes
+      type: string
+      example: "Payment failed"
+      description: "Human-readable description of what happened"
+
+    - name: host
+      required: no
+      type: string
+      example: "server-01"
+      description: "Machine or container that generated the log"
+
+    - name: request_id
+      required: no
+      type: string
+      example: "req-abc-123"
+      description: "Unique ID to trace a request across services"
+
+    - name: response_time_ms
+      required: no
+      type: integer
+      example: 342
+      description: "How long the operation took in milliseconds"
+
+    - name: status_code
+      required: no
+      type: integer
+      example: 500
+      description: "HTTP status code if applicable"
+
+    - name: user_id
+      required: no
+      type: string
+      example: "user_789"
+      description: "ID of the user who triggered the action"
+
+
+# ─────────────────────────────────────────────
+# 3 EXAMPLES OF DIFFERENT LOG TYPES
+# ─────────────────────────────────────────────
+
+examples:
+
+  - description: "Normal successful request (INFO)"
+    timestamp: "2024-02-13 10:30:00"
+    level: "INFO"
+    service: "auth-service"
+    message: "User logged in successfully"
+    host: "server-01"
+    request_id: "req-001"
+    response_time_ms: 120
+    status_code: 200
+    user_id: "user_101"
+
+  - description: "Slow response warning (WARNING)"
+    timestamp: "2024-02-13 11:15:42"
+    level: "WARNING"
+    service: "search-service"
+    message: "Response time exceeded 1000ms threshold"
+    host: "server-03"
+    request_id: "req-002"
+    response_time_ms: 1543
+    status_code: 200
+    user_id: "user_204"
+
+  - description: "Critical failure (ERROR)"
+    timestamp: "2024-02-13 14:23:45"
+    level: "ERROR"
+    service: "payment-service"
+    message: "Payment failed - database connection timeout"
+    host: "server-02"
+    request_id: "req-003"
+    response_time_ms: 5000
+    status_code: 500
+    user_id: "user_305"
