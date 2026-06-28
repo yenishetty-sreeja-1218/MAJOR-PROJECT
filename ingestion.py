@@ -1,11 +1,19 @@
+from pathlib import Path
 import dask.dataframe as dd
 
+# Project root (folder containing ingestion.py)
+BASE_DIR = Path(__file__).resolve().parent
+DEFAULT_CSV = BASE_DIR / "app_logs.csv"
 
-def load_logs(file_path="app_logs.csv"):
+
+def load_logs(file_path=None):
     """
     Load logs into a Dask DataFrame.
     """
-    return dd.read_csv(file_path)
+    if file_path is None:
+        file_path = DEFAULT_CSV
+
+    return dd.read_csv(str(file_path))
 
 
 def get_log_statistics(ddf):
@@ -27,7 +35,6 @@ def get_log_statistics(ddf):
 if __name__ == "__main__":
     ddf = load_logs()
 
-    stats = get_log_statistics(ddf)
     print("\n✔ Logs Loaded Successfully")
     print(ddf.head())
 
