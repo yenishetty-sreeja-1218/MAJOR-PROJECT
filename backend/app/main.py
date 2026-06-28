@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from app.api.dashboard import router as dashboard_router
 from app.api.logs import router as logs_router
+from app.api.anomaly import router as anomaly_router
 
 app = FastAPI(
     title="LogSentinel API",
@@ -26,3 +27,4 @@ def health():
 
 app.include_router(dashboard_router)
 app.include_router(logs_router)
+app.include_router(anomaly_router)
